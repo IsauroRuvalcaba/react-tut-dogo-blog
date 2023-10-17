@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
@@ -17,6 +17,13 @@ const Home = () => {
     const newBlogs = blogs.filter((blog) => blog.id !== id);
     setBlogs(newBlogs);
   };
+
+  //useEffect runs on every render
+  // do not change state in useEffect.  Can cause neverending loop.
+  useEffect(() => {
+    console.log("use effect ran");
+    console.log(blogs);
+  });
 
   return (
     <div className="home">
