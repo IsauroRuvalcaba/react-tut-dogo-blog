@@ -4,7 +4,7 @@ import BlogList from "./BlogList";
 const Home = () => {
   const [blogs, setBlogs] = useState(null);
 
-  const [name, setName] = useState("mario");
+  const [isPending, setIsPending] = useState(true);
 
   //useEffect runs on every render
   // do not change state in useEffect.  Can cause neverending loop.
@@ -18,11 +18,13 @@ const Home = () => {
       .then((data) => {
         console.log(data);
         setBlogs(data);
+        setIsPending(false); //this is used to remove the Loading... in conditional template
       });
   }, []);
 
   return (
     <div className="home">
+      {isPending && <div>Loading...</div>}
       {/* blogs && is needed because the data takes a bit to load */}
       {blogs && <BlogList blogs={blogs} title="All Blogs!" />}
     </div>
