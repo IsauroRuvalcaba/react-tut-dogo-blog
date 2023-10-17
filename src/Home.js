@@ -13,6 +13,8 @@ const Home = () => {
     },
   ]);
 
+  const [name, setName] = useState("mario");
+
   const handleDelete = (id) => {
     const newBlogs = blogs.filter((blog) => blog.id !== id);
     setBlogs(newBlogs);
@@ -20,14 +22,18 @@ const Home = () => {
 
   //useEffect runs on every render
   // do not change state in useEffect.  Can cause neverending loop.
+  // empty dependency array only runs on initial render.
+  // adding dependency to array will run everytime that state changes and on initial
   useEffect(() => {
     console.log("use effect ran");
-    console.log(blogs);
-  });
+    console.log(name);
+  }, [name]);
 
   return (
     <div className="home">
       <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete} />
+      <button onClick={() => setName("luigi")}>change name</button>
+      <p>{name}</p>
     </div>
   );
 };
