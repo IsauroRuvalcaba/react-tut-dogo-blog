@@ -1,3 +1,4 @@
+import Create from "./Create";
 import Home from "./Home";
 import NavBar from "./Navbar";
 import {
@@ -15,9 +16,13 @@ function App() {
         <div className="content">
           <Switch>
             <Route path="/" element={<Home />}></Route>
-            {/* v6 use above. v5 is below */}
-            {/* <Route path="/">
+            <Route path="/create" element={<Create />}></Route>
+            {/* v6 use above. v5 is below. exact not needed in v6 */}
+            {/* <Route exact path="/">
               <Home/>
+            </Route> */}
+            {/* <Route path="/create">
+              <Creaet/>
             </Route> */}
           </Switch>
         </div>
