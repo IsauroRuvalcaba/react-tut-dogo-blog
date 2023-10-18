@@ -1,3 +1,4 @@
+import BlogDetails from "./BlogDetails";
 import Create from "./Create";
 import Home from "./Home";
 import NavBar from "./Navbar";
@@ -17,6 +18,7 @@ function App() {
           <Switch>
             <Route path="/" element={<Home />}></Route>
             <Route path="/create" element={<Create />}></Route>
+            <Route path="/blogs/:id" element={<BlogDetails />}></Route>
             {/* v6 use above. v5 is below. exact not needed in v6 */}
             {/* <Route exact path="/">
               <Home/>
