@@ -7,6 +7,7 @@ import {
   Route,
   Routes as Switch,
 } from "react-router-dom";
+import NotFound from "./NotFound";
 //Switch -> Routes
 
 // npx json-server --watch data/db.json --port 8000
@@ -28,6 +29,8 @@ function App() {
             {/* <Route path="/create">
               <Creaet/>
             </Route> */}
+            {/* the catch all NotFound has to be at bottom */}
+            <Route path="*" element={<NotFound />}></Route>
           </Switch>
         </div>
       </div>
