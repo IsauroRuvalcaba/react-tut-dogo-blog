@@ -1,10 +1,20 @@
 import { useState } from "react";
+// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("yoshi");
   const [isPending, setIsPending] = useState(false);
+  // const history = useHistory();
+  const navigate = useNavigate();
+
+  /**
+  In version 6, use useNavigate instead of useHistory,
+navigate = useNavigate() instead of history = useHistory(),
+and navigate('/') instead of history.push('/'), it should work then^^
+   */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +29,9 @@ const Create = () => {
     }).then(() => {
       console.log("new blog added");
       setIsPending(false);
+      // history.go(-1);
+      // navigate(-1);
+      navigate("/");
     });
   };
 
