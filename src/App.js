@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 //Switch -> Routes
 
+// npx json-server --watch data/db.json --port 8000
+
 function App() {
   return (
     <Router>

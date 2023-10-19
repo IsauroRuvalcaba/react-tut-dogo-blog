@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+// npx json-server --watch data/db.json --port 8000
+
 //custom hooks use begin with "use" or they wont work
 const useFetch = (url) => {
   const [data, setData] = useState(null);
